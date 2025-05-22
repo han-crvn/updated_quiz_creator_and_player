@@ -1,3 +1,14 @@
 {
-    "Science": []
+    "Science": [
+        {
+            "question": "a",
+            "choices": {
+                "A": "v",
+                "B": "v",
+                "C": "v",
+                "D": "v"
+            },
+            "answer": "A"
+        }
+    ]
 }
