@@ -24,6 +24,7 @@ class QuizCreator:
 
     # Add categories.
     def add_category(self, name):
+
         # Allow users to add category and format it to title case.
         name = name.title()
 
@@ -177,7 +178,7 @@ def main_program():
 
             # Allow users to exit the program.
             elif choice == 3:
-                print("Thank you for using Quizzo. Goodbye!\n")
+                print("\nThank you for using Quizzo. Goodbye!\n")
                 break
             
             # Catch invalid input.
