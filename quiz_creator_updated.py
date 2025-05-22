@@ -175,8 +175,9 @@ def main_program():
                 except ValueError:
                     print("Invalid input.\n")
 
+            # Allow users to exit the program.
             elif choice == 3:
-                print("Thank you for using Quizzo!\n")
+                print("Thank you for using Quizzo. Goodbye!\n")
                 break
             
             # Catch invalid input.
