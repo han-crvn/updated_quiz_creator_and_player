@@ -35,10 +35,20 @@ class QuizCreator:
             self.save_categories()
             print(f"{name} is successfully added!\n")
 
+    # List down categories.
+    def list_categories(self):
+
+        # Check if there is existing categories
+        if not self.categories:
+            print("\nNo categories available.\n")
+            return []
+        for i, category in enumerate(self.categories.keys(), 1):
+            print(f"{i}. {category}")
+        return list(self.categories.keys())
 
 # Create the main program.
 def main_program():
-    creator = QuizCreator()
+    main_creator = QuizCreator()
     
     # Add short opening message.
     print("Hello! This is Quizzo.")
@@ -63,11 +73,36 @@ def main_program():
                     continue
 
                 # Add the category name.
-                creator.add_category(category_name)
+                main_creator.add_category(category_name)
 
              # If users choose option 2, allow them to access category and add question set.
             elif choice == 2:
-                pass
+                
+                # Call list category.
+                category_list = main_creator.list_categories()
+                
+                # Check if there is existing categories
+                if not category_list:
+                    continue
+                
+                try:
+
+                    # Allow users to choose from options.
+                    options = int(input("\nChoose a category (0 to go back): "))
+                    
+                    # Check if the chosen option is valid.
+                    if options == 0:
+                        continue
+                    elif 1 <= options <= len(category_list):
+                        pass
+                    
+                     # Catch invalid input.
+                    else:
+                        print("Invalid selection.\n")
+                
+                 # Catch invalid input.
+                except ValueError:
+                    print("Invalid input.\n")
 
             elif choice == 3:
                 print("Thank you for using Quizzo!")
