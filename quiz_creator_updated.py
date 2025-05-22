@@ -6,11 +6,11 @@ import json
 class QuizCreator:
     
     # File location.
-    def __init_(self, file_name = "category.json"):
+    def __init__(self, file_name = "category.json"):
         self.file_name = file_name
-        self.categories = self.load.categories()
+        self.categories = self.access_categories()
 
-    # Accessing categories
+    # Accessing categories.
     def access_categories(self):
         if os.path.exists(self.file_name):
             with open(self.file_name, "r") as file:
