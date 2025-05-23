@@ -9,7 +9,7 @@ class ViewHistory:
     
     def __init__(self, history_file="data_information.json"):
         self.history_file = history_file
-        self.history_data = self.load_history()
+        self.history_data = self.access_history()
 
     # Define function for history.
     def access_history(self):
@@ -99,9 +99,9 @@ class PlayQuiz:
             
             # Validate the answers they gave.
             if 1 <= choice <= len(categories):
-                selected_cat = categories[choice - 1]
-                questions = self.data[selected_cat]
-                self.ask_questions(selected_cat, questions)
+                selected_category = categories[choice - 1]
+                questions = self.data[selected_category]
+                self.answer_question(selected_category, questions)
             
             # Catch invalid input.
             else:
@@ -112,7 +112,7 @@ class PlayQuiz:
             print("\nInvalid input! try again.")
 
     # Define function for question set.
-    def asnswer_question(self, category, questions):
+    def answer_question(self, category, questions):
         
         # Add a score variable.
         score = 0
