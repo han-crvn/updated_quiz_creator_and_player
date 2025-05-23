@@ -64,20 +64,96 @@ class ViewHistory:
 # Create a class for quiz player.
 class PlayQuiz:
 
-    def __init__(self):
-        pass
+    def __init__(self, quiz_file="category.json"):
+        self.quiz_file = quiz_file
+        self.data = self.load_quiz()
+        self.history = ViewHistory()
 
     # Define function for loading quiz.
     def load_quiz(self):
-        pass
+       
+       # Access the question set.
+        if os.path.exists(self.quiz_file):
+            with open(self.quiz_file, "r") as file:
+                return json.load(file)
+        return {}
 
     # Define function for playing quiz.
     def play_quiz(self):
-        pass
+       
+       # Check if there is a category.
+        if not self.data:
+            print("No categories available.\n")
+            return
+
+        # Print the category down
+        print("\nAvailable Categories:")
+        categories = list(self.data.keys())
+        for count_category, category_list in enumerate(categories, 1):
+            print(f"{count_category}. {category_list}")
+
+        try:
+
+            # Allow users to choose from the category present.
+            choice = int(input("Choose a category: "))
+            
+            # Validate the answers they gave.
+            if 1 <= choice <= len(categories):
+                selected_cat = categories[choice - 1]
+                questions = self.data[selected_cat]
+                self.ask_questions(selected_cat, questions)
+            
+            # Catch invalid input.
+            else:
+                print("\nInvalid input! try again.")
+
+        # Catch invalid input.
+        except ValueError:
+            print("\nInvalid input! try again.")
 
     # Define function for question set.
-    def asnswer_question(self):
-        pass
+    def asnswer_question(self, category, questions):
+        
+        # Add a score variable.
+        score = 0
+
+        # Input users name.
+        user = input("Enter your name: ").strip()
+        
+        # Shuffle the questions.
+        random.shuffle(questions)
+        
+        # Limit the question into ten if it is more than 10.
+        selected = questions[:min(10, len(questions))]
+        
+        # Print the question.
+        for amount_question, question in enumerate(selected, 1):
+            print(f"\n{amount_question}. {question['question']}")
+            
+            # List down the choices.
+            for letter, choice in question['choices'].items():
+                print(f" {letter}. {choice}")
+            
+            while True:
+                
+                # Ask users for their answer.
+                answer = input("Your answer (A, B, C, D): ").upper()
+                
+                # Validate their answers.
+                if answer in ['A', 'B', 'C', 'D']:
+                    break
+                print("Invalid input! Enter A, B, C, or D.")
+            
+            # Add one if correct.
+            if answer == question['answer'].upper():
+                print("Correct!\n")
+                score += 1
+            
+            # Otherwise, tell them why they are wrong.
+            else:
+                print(f"Wrong. Correct answer: {question['answer']}\n")
+
+        self.history.record_score(user, category, score, len(selected))
 
 # Define function for main program (quiz player).
 def main_program():
