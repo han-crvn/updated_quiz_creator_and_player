@@ -1,3 +1,14 @@
 {
-    "Science": []
+    "Science": [
+        {
+            "question": "What is a apple?",
+            "choices": {
+                "A": "Fruit",
+                "B": "Vegetable",
+                "C": "Human",
+                "D": "Place"
+            },
+            "answer": "D"
+        }
+    ]
 }

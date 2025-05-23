@@ -31,7 +31,12 @@ class ViewHistory:
     def record_data(self, user, category, score, total):
        
        # Get the average of the user's score
-        average = (score / total) * 100
+        if total > 0:
+            average = (score / total) * 100
+
+        else:
+            print("No question was entered.")
+            breakpoint
        
        # Save the user's data using this format.
         entry = {
@@ -153,7 +158,7 @@ class PlayQuiz:
             else:
                 print(f"Wrong. Correct answer: {question['answer']}\n")
 
-        self.history.record_score(user, category, score, len(selected))
+        self.history.record_data(user, category, score, len(selected))
 
 # Define function for main program (quiz player).
 def main_program():
@@ -176,7 +181,7 @@ def main_program():
             
             # If users choose 1, they will be able to play the quiz.
             if choice == 1:
-                pass
+                access_quiz.play_quiz()
             
             # If users choose 2, they will be able to access history.
             elif choice == 2:
