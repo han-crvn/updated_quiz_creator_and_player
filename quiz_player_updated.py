@@ -37,7 +37,7 @@ class ViewHistory:
         # Statement if no questions.
         else:
             print("No question was entered.")
-            breakpoint
+            
        
        # Save the user's data using this format.
         entry = {
