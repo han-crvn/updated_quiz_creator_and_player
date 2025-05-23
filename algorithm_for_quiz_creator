@@ -1,0 +1,14 @@
+First Algorithm for Quiz Creation:
+
+1. Import libraries that will be needed.
+2. Allow users to choose between the three option (Add category, Access Category, Exit).
+3. If users choose add category:
+    3.1. Allow users to input the name of category.
+    3.2. Create a txt.file using the input.
+    3.3. Write in the first line of file the name of category.
+4. If users choose Access category:
+    4.1 Allow users to choose between the present category.
+    4.2 Access the category.
+    4.3 Add question, choices, and answer to the category.
+    4.4 Ask user if they want to add more.
+5. If users choose exit they will be able to exit to the program. 
