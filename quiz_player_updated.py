@@ -34,6 +34,7 @@ class ViewHistory:
         if total > 0:
             average = (score / total) * 100
 
+        # Statement if no questions.
         else:
             print("No question was entered.")
             breakpoint
@@ -78,7 +79,7 @@ class ViewHistory:
         try:
 
             # Allow users to acccess specific name
-            choice = int(input("Choose a user to view history: "))
+            choice = int(input("\nChoose a user to view history: "))
             
             users = list(self.history_data.keys())
 
@@ -96,8 +97,8 @@ class ViewHistory:
             
             # Catch invalid input.
             else:
-                 print("\nInvalid input! try again.")
-
+                print("\nInvalid input! try again.")
+                
         # Catch invalid input.
         except ValueError:
              print("\nInvalid input! try again.")
@@ -136,7 +137,7 @@ class PlayQuiz:
         try:
 
             # Allow users to choose from the category present.
-            choice = int(input("Choose a category: "))
+            choice = int(input("\nChoose a category: "))
             
             # Validate the answers they gave.
             if 1 <= choice <= len(categories):
@@ -199,6 +200,7 @@ class PlayQuiz:
 # Define function for main program (quiz player).
 def main_program():
     
+    # Add variable for accesing class of Play Quiz.
     access_quiz = PlayQuiz()
     
     # Print short intro message.
