@@ -43,8 +43,8 @@ class QuizCreator:
         if not self.categories:
             print("\nNo categories available.\n")
             return []
-        for i, category in enumerate(self.categories.keys(), 1):
-            print(f"{i}. {category}")
+        for num_category, category in enumerate(self.categories.keys(), 1):
+            print(f"{num_category}. {category}")
         return list(self.categories.keys())
     
     # Add questions to categories
