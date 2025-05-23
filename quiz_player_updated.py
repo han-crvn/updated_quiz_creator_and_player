@@ -37,7 +37,6 @@ class ViewHistory:
         # Statement if no questions.
         else:
             print("No question was entered.")
-            
        
        # Save the user's data using this format.
         entry = {
@@ -56,10 +55,10 @@ class ViewHistory:
         # Validate their scores.
         if average >= 100:
             print(f"Congratulations {user.title()}! You scored {entry['Score']} ({entry['Average']})")
-        elif average < 90:
+        elif average >= 90:
             print(f"Nice Job {user.title()}! You scored {entry['Score']} ({entry['Average']})")  
-        elif average < 50:
-            print(f"Better Luck Next Time {user.title()}! You scored {entry['Score']} ({entry['Average']})")
+        elif average >= 50:
+            print(f"Better luck next time {user.title()}! You scored {entry['Score']} ({entry['Average']})")
         else:
             print(f"You better study more {user.title()}! You scored {entry['Score']} ({entry['Average']})")
 
