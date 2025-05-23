@@ -64,7 +64,43 @@ class ViewHistory:
 
     # Define function for viewing history.
     def view_history(self):
-        pass
+        
+        # Check if there is available history.
+        if not self.history_data:
+            print("No history available.\n")
+            return
+        
+        # Print the history.
+        print("\nUsers' History:")
+        for index, name in enumerate(self.history_data, 1):
+            print(f"{index}. {name}")
+
+        try:
+
+            # Allow users to acccess specific name
+            choice = int(input("Choose a user to view history: "))
+            
+            users = list(self.history_data.keys())
+
+            # Validate their choice
+            if 1 <= choice <= len(users):
+                selected = users[choice - 1]
+                
+                # Print the data of the user.
+                print(f"\nHistory for {selected}:")
+                for list_number, record in enumerate(self.history_data[selected], 1):
+                    print(f"{list_number}. Category: {record['Category']}")
+                    print(f"\tScore: {record['Score']}")
+                    print(f"\tDate: {record['Date']}")
+                    print(f"\tAverage: {record['Average']}")
+            
+            # Catch invalid input.
+            else:
+                 print("\nInvalid input! try again.")
+
+        # Catch invalid input.
+        except ValueError:
+             print("\nInvalid input! try again.")
 
 # Create a class for quiz player.
 class PlayQuiz:
@@ -185,7 +221,7 @@ def main_program():
             
             # If users choose 2, they will be able to access history.
             elif choice == 2:
-                pass
+                access_quiz.history.view_history()
             
             # If users choose 3, they will be able to exit the program.
             elif choice == 3:
