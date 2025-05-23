@@ -7,20 +7,55 @@ import time
 # Create a class for history.
 class ViewHistory:
     
-    def __init__(self):
-        pass
+    def __init__(self, history_file="data_information.json"):
+        self.history_file = history_file
+        self.history_data = self.load_history()
 
     # Define function for history.
     def access_history(self):
-        pass
+       
+       # Access the history file.
+        if os.path.exists(self.history_file):
+            with open(self.history_file, "r") as file:
+                return json.load(file)
+        return {}
     
     # Define function for saving history.
     def save_history(self):
-        pass
+       
+       # Allow the program to write in file.
+        with open(self.history_file, "w") as file:
+            json.dump(self.history_data, file, indent=4)
 
     # Define function for recording data.
-    def record_data(self):
-        pass
+    def record_data(self, user, category, score, total):
+       
+       # Get the average of the user's score
+        average = (score / total) * 100
+       
+       # Save the user's data using this format.
+        entry = {
+            "Category": category,
+            "Score": f"{score}/{total}",
+            "Date": time.ctime(),
+            "Average": f"{average:.2f} %"
+        }
+       
+       # Check if there is an existing name.
+        if user not in self.history_data:
+            self.history_data[user] = []
+        self.history_data[user].append(entry)
+        self.save_history()
+
+        # Validate their scores.
+        if average >= 100:
+            print(f"Congratulations {user.title()}! You scored {entry['Score']} ({entry['Average']})")
+        elif average < 90:
+            print(f"Nice Job {user.title()}! You scored {entry['Score']} ({entry['Average']})")  
+        elif average < 50:
+            print(f"Better Luck Next Time {user.title()}! You scored {entry['Score']} ({entry['Average']})")
+        else:
+            print(f"You better study more {user.title()}! You scored {entry['Score']} ({entry['Average']})")
 
     # Define function for viewing history.
     def view_history(self):
