@@ -1,7 +1,7 @@
 Updated Algorithm for Quiz Player:
 
 1. Import libraries that will be needed.
-2. Allow users to choose between the two options (Play a Quiz, View History, Exit).
+2. Allow users to choose between the two options (Play a Quiz, View History & Exit).
 3. If users choose Play a Quiz:
     3.1. Allow users to choose from the present quiz category.
     3.2. Allow users to input their name.
