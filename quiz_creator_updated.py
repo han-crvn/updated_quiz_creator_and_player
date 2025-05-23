@@ -39,7 +39,7 @@ class QuizCreator:
     # List down categories.
     def list_categories(self):
 
-        # Check if there is existing categories
+        # Check if there is existing categories.
         if not self.categories:
             print("\nNo categories available.\n")
             return []
@@ -50,7 +50,7 @@ class QuizCreator:
     # Add questions to categories
     def add_question_set(self, category_name):
         
-        # Check if there is an existing category
+        # Check if there is an existing category.
         if category_name not in self.categories:
             print("Invalid category.\n")
             return
@@ -65,18 +65,18 @@ class QuizCreator:
                 print("Question cannot be empty.\n")
                 continue
             
-            # Stores the choices
+            # Stores the choices.
             choices = {}
 
             # Loop choices for A-D.
             for number in range(4):
                 
-                # Tell what letter is the choise
+                # Tell what letter is the choice.
                 option = chr(65 + number)
                 
                 while True:
                     
-                    # Allow users to input the choices
+                    # Allow users to input the choices.
                     choice_text = input(f"Enter choice '{option}': ").strip()
                     
                     # Check if there is a choice.
@@ -153,7 +153,7 @@ def main_program():
                 # Call list category.
                 category_list = main_creator.list_categories()
                 
-                # Check if there is existing categories
+                # Check if there is existing categories.
                 if not category_list:
                     continue
                 
