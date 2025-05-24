@@ -10,6 +10,7 @@ def main_program():
     print("Hello! This is Quizzo.")
 
     while True:
+
         # Print the selections.
         print("\nSelection:\n1. Add Category\n2. Access Category\n3. Exit\n")
         
@@ -31,7 +32,7 @@ def main_program():
                 # Add the category name.
                 main_creator.add_category(category_name)
 
-             # If users choose option 2, allow them to access category and add question set.
+            # If users choose option 2, allow them to access category and add question set.
             elif choice == 2:
                 
                 # Call list category.
