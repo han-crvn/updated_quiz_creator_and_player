@@ -121,7 +121,7 @@ class QuizCreator:
 # Create a class for history.
 class ViewHistory:
     
-    def __init__(self, history_file="data_information.json"):
+    def __init__(self, history_file = "data_information.json"):
         self.history_file = history_file
         self.history_data = self.access_history()
 
@@ -139,7 +139,7 @@ class ViewHistory:
        
        # Allow the program to write in file.
         with open(self.history_file, "w") as file:
-            json.dump(self.history_data, file, indent=4)
+            json.dump(self.history_data, file, indent = 4)
 
     # Define function for recording data.
     def record_data(self, user, category, score, total):
@@ -219,7 +219,7 @@ class ViewHistory:
 # Create a class for quiz player.
 class PlayQuiz:
 
-    def __init__(self, quiz_file="category.json"):
+    def __init__(self, quiz_file = "category.json"):
         self.quiz_file = quiz_file
         self.data = self.load_quiz()
         self.history = ViewHistory()
